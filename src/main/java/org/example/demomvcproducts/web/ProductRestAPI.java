@@ -2,13 +2,12 @@ package org.example.demomvcproducts.web;
 
 import org.example.demomvcproducts.entities.Product;
 import org.example.demomvcproducts.repository.ProductRepository;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
 @RestController
+@CrossOrigin("*")
 public class ProductRestAPI {
     private ProductRepository productRepository;
     public ProductRestAPI(ProductRepository productRepository) {
@@ -21,5 +20,9 @@ public class ProductRestAPI {
     @GetMapping("/products/{id}")
     public Product findById(@PathVariable long id) {
         return productRepository.findById(id).get();
+    }
+    @DeleteMapping("/products/{id}")
+    public void deleteById(@PathVariable long id) {
+        productRepository.deleteById(id);
     }
 }

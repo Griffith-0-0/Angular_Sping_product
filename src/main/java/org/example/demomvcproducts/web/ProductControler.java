@@ -26,10 +26,10 @@ public class ProductControler {
 
     @RequestMapping(value="/")
     public String index(){
-        return "redirect:/user/index";
+        return "redirect:/index";
     }
 
-    @RequestMapping(value = "/user/index", method = RequestMethod.GET)
+    @RequestMapping(value = "/index", method = RequestMethod.GET)
     @PreAuthorize("hasRole('USER')")
     public String chercher(Model model,
                            @RequestParam(name = "page", defaultValue = "0") int page,
@@ -50,14 +50,14 @@ public class ProductControler {
                 return "products";
     }
 
-    @RequestMapping(value = "/admin/form")
+    @RequestMapping(value = "/form")
     @PreAuthorize("hasRole('ADMIN')")
     public String form(Model model) {
         model.addAttribute("product", new Product());
         return "formProduit";
     }
 //---------------
-    @RequestMapping(value = "/admin/formModifier", method = RequestMethod.GET)
+    @RequestMapping(value = "/formModifier", method = RequestMethod.GET)
     @PreAuthorize("hasRole('ADMIN')")
     public String formModifier(@RequestParam(name= "id") Long id, Model model) {
         Optional<Product> product=productRepository.findById(id);
@@ -66,32 +66,32 @@ public class ProductControler {
         return "formModifier";
     }
 
-    @RequestMapping(value = "/admin/modifierProduit", method = RequestMethod.POST)
+    @RequestMapping(value = "/modifierProduit", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ADMIN')")
     public String modifier(Model model, @Valid @ModelAttribute("product") Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/admin/formModifier";
+            return "/formModifier";
         }
         model.addAttribute("product", product);
         return "confirmation";
     }
 //---------------
-    @RequestMapping(value = "/admin/saveProduit", method = RequestMethod.POST)
+    @RequestMapping(value = "/saveProduit", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ADMIN')")
     public String save(Model model, @Valid @ModelAttribute("product") Product product, BindingResult bindingResult) {
         if (bindingResult.hasErrors()) {
-            return "/admin/formProduit";
+            return "/formProduit";
         }
         model.addAttribute("product", product);
         return "confirmation";
     }
 
-    @RequestMapping(value = "/admin/confim", method = RequestMethod.POST)
+    @RequestMapping(value = "/confim", method = RequestMethod.POST)
     @PreAuthorize("hasRole('ADMIN')")
     public String confirmation(Model model, Product product) {
         productRepository.save(product);
         model.addAttribute("product", product);
-        return "redirect:/user/index";
+        return "redirect:/index";
     }
 
     @GetMapping("/admin/deleteProduct")
