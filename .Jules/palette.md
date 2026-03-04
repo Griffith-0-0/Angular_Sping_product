@@ -1,0 +1,3 @@
+## 2026-03-04 - Semantic Navigation and Active States in Angular
+**Learning:** Using `<div>` for navigation links is inaccessible as it lacks the 'link' role and keyboard support by default. In Angular, semantic `<a>` tags should be used with `routerLinkActive` for visual feedback and `ariaCurrentWhenActive="page"` to inform assistive technologies of the current page. Leveraging existing design system (Bootstrap) classes for active states is preferred over custom CSS.
+**Action:** Always use semantic `<a>` tags within a `<nav>` element and apply `ariaCurrentWhenActive="page"` for accessible routing. Prefer design system classes (like Bootstrap's `.active` on buttons) for visual feedback.
