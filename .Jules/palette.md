@@ -1,0 +1,3 @@
+## 2026-03-09 - Semantic Navigation and Route Active States
+**Learning:** In an Angular standalone application with Bootstrap, using semantic `<a>` tags for navigation links instead of generic `<div>` elements is crucial for accessibility. Furthermore, explicitly importing `RouterLinkActive` in the component's `imports` array is required to enable visual feedback for active routes via the `routerLinkActive` directive.
+**Action:** Always prefer semantic tags for navigation, ensure proper ARIA attributes (`aria-label`, `aria-current`), and remember to import necessary router directives when using standalone components.
