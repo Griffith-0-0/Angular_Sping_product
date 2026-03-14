@@ -1,12 +1,17 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { App } from './app';
+import { routes } from './app.routes';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideZonelessChangeDetection()]
+      providers: [
+        provideZonelessChangeDetection(),
+        provideRouter(routes)
+      ]
     }).compileComponents();
   });
 
@@ -16,10 +21,13 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should have semantic navigation links', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, tpAng1');
+    const navLinks = compiled.querySelectorAll('nav a');
+    expect(navLinks.length).toBe(2);
+    expect(navLinks[0].getAttribute('routerLink')).toBe('/home');
+    expect(navLinks[1].getAttribute('routerLink')).toBe('/products');
   });
 });
