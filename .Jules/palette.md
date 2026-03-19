@@ -1,0 +1,3 @@
+## 2026-03-19 - Semantic Navigation and Accessibility in Angular
+**Learning:** Using non-semantic `div` elements for navigation with `routerLink` prevents keyboard accessibility and fails to provide screen readers with proper context. Replacing them with `<a>` tags within a `<nav aria-label="...">` landmark, and using `ariaCurrentWhenActive="page"`, significantly improves the experience for assistive technology users.
+**Action:** Always prefer semantic `<a>` tags for navigation and group them in a `<nav>` landmark with a descriptive `aria-label`. Use `ariaCurrentWhenActive` to communicate the active state programmatically.
