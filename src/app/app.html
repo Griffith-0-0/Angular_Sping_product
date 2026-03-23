@@ -1,7 +1,12 @@
 <div class="p-3">
-  <nav>
-    <div routerLink="/home" class="btn btn-outline-primary">Home</div>
-    <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
+  <h1>Hello, tpAng1</h1>
+  <nav aria-label="Main Navigation" class="mb-3">
+    <div class="btn-group">
+      <a routerLink="/home" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ariaCurrentWhenActive="page" class="btn btn-outline-primary">Home</a>
+      <a routerLink="/products" routerLinkActive="active" [routerLinkActiveOptions]="{exact: true}" ariaCurrentWhenActive="page" class="btn btn-outline-primary">Products</a>
+    </div>
   </nav>
-  <router-outlet></router-outlet>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>
