@@ -1,0 +1,3 @@
+## 2026-03-30 - Navigation Accessibility and UX
+**Learning:** In Angular standalone components, router directives like RouterLink and RouterLinkActive must be explicitly imported in the component's 'imports' array. Using semantic <a> tags with Bootstrap's 'btn-group' and 'active' classes provides both visual and programmatic feedback for navigation. Decorative icons should always have 'aria-hidden="true"' to avoid screen reader noise.
+**Action:** Always check the 'imports' array when using Angular router directives in standalone components and prioritize semantic HTML landmarks like <nav> and <main>.
