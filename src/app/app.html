@@ -1,7 +1,25 @@
-<div class="p-3">
-  <nav>
-    <div routerLink="/home" class="btn btn-outline-primary">Home</div>
-    <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
+<div class="container mt-4">
+  <nav aria-label="Main Navigation" class="mb-4">
+    <div class="btn-group shadow-sm" role="group">
+      <a routerLink="/home"
+         routerLinkActive="active"
+         [routerLinkActiveOptions]="{exact: true}"
+         ariaCurrentWhenActive="page"
+         class="btn btn-outline-primary d-inline-flex align-items-center">
+        <i class="bi bi-house-door me-1" aria-hidden="true"></i>
+        <span>Home</span>
+      </a>
+      <a routerLink="/products"
+         routerLinkActive="active"
+         ariaCurrentWhenActive="page"
+         class="btn btn-outline-primary d-inline-flex align-items-center">
+        <i class="bi bi-box-seam me-1" aria-hidden="true"></i>
+        <span>Products</span>
+      </a>
+    </div>
   </nav>
-  <router-outlet></router-outlet>
+
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>
