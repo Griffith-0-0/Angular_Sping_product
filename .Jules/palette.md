@@ -1,0 +1,3 @@
+## 2026-04-14 - Navigation Accessibility and State Management in Angular 20 Standalone
+**Learning:** In a standalone Angular 20 environment using zoneless change detection, navigation unit tests require explicit `provideRouter(routes)` and `provideZonelessChangeDetection()` in the `TestBed` providers to function correctly. Additionally, using `routerLinkActiveOptions` or ensuring a clean redirect from the root path is essential to avoid multiple visual active states in a Bootstrap-styled navigation.
+**Action:** Always include `provideRouter` in component tests that use `RouterLink` and verify navigation landmarks (`<nav>`, `<main>`) to ensure structural accessibility.
