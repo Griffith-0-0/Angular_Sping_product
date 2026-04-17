@@ -1,12 +1,17 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { provideRouter } from '@angular/router';
 import { App } from './app';
+import { routes } from './app.routes';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideZonelessChangeDetection()]
+      providers: [
+        provideZonelessChangeDetection(),
+        provideRouter(routes)
+      ]
     }).compileComponents();
   });
 
@@ -16,10 +21,21 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should render navigation links', () => {
     const fixture = TestBed.createComponent(App);
     fixture.detectChanges();
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, tpAng1');
+    const navLinks = compiled.querySelectorAll('nav a');
+    expect(navLinks.length).toBe(2);
+    expect(navLinks[0].textContent).toContain('Home');
+    expect(navLinks[1].textContent).toContain('Products');
+  });
+
+  it('should have aria-label on nav', () => {
+    const fixture = TestBed.createComponent(App);
+    fixture.detectChanges();
+    const compiled = fixture.nativeElement as HTMLElement;
+    const nav = compiled.querySelector('nav');
+    expect(nav?.getAttribute('aria-label')).toBe('Main Navigation');
   });
 });
