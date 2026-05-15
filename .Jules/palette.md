@@ -1,0 +1,3 @@
+## 2026-05-15 - Enhancing Navigation UX in Angular Standalone
+**Learning:** In an Angular (v20) standalone project, navigation accessibility is greatly improved by using semantic `<a>` tags with `routerLinkActive` and `ariaCurrentWhenActive="page"`. Visual grouping with Bootstrap's `btn-group` and the addition of icons provide clearer affordances for interactive elements.
+**Action:** Always prefer semantic `<a>` tags over `<div>` for navigation. Use `routerLinkActive` to provide visual feedback and `ariaCurrentWhenActive` for programmatic accessibility. Ensure icons have `aria-hidden="true"` when they are decorative.
