@@ -1,0 +1,3 @@
+## 2026-06-20 - [Accessible Navigation and Visual Feedback]
+**Learning:** Using generic `div` elements for navigation violates accessibility standards (ARIA roles) and prevents users from benefiting from standard link behaviors (e.g., right-click to open in new tab). Additionally, without explicit `RouterLinkActive` feedback, users lack immediate visual context of their current location within the application's structure.
+**Action:** Always use semantic `<a>` tags for navigation, wrap them in a `<nav>` landmark with an `aria-label`, and use `RouterLinkActive` with `aria-current="page"` to provide both visual and programmatic feedback of the active route.
