@@ -1,7 +1,36 @@
-<div class="p-3">
-  <nav>
-    <div routerLink="/home" class="btn btn-outline-primary">Home</div>
-    <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
+<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+
+<div class="container py-4">
+  <header class="mb-4">
+    <h1 class="h3">Hello, {{title}}</h1>
+  </header>
+
+  <nav class="mb-4" aria-label="Main navigation">
+    <div class="btn-group shadow-sm" role="group">
+      <a routerLink="/home"
+         routerLinkActive
+         #rlaHome="routerLinkActive"
+         [class.btn-primary]="rlaHome.isActive"
+         [class.btn-outline-primary]="!rlaHome.isActive"
+         class="btn"
+         ariaCurrentWhenActive="page">
+        <i class="bi bi-house-door me-1" aria-hidden="true"></i>
+        Home
+      </a>
+      <a routerLink="/products"
+         routerLinkActive
+         #rlaProducts="routerLinkActive"
+         [class.btn-primary]="rlaProducts.isActive"
+         [class.btn-outline-primary]="!rlaProducts.isActive"
+         class="btn"
+         ariaCurrentWhenActive="page">
+        <i class="bi bi-box-seam me-1" aria-hidden="true"></i>
+        Products
+      </a>
+    </div>
   </nav>
-  <router-outlet></router-outlet>
+
+  <main id="main" tabindex="-1">
+    <router-outlet></router-outlet>
+  </main>
 </div>
