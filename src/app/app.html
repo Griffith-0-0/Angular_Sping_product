@@ -1,7 +1,24 @@
-<div class="p-3">
-  <nav>
-    <div routerLink="/home" class="btn btn-outline-primary">Home</div>
-    <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
+<div class="container py-3">
+  <header>
+    <h1>Hello, {{title}}</h1>
+  </header>
+  <nav class="mb-3" aria-label="Main navigation">
+    <a routerLink="/home"
+       routerLinkActive="btn-primary"
+       [routerLinkActiveOptions]="{exact: true}"
+       [class.btn-outline-primary]="!rlaHome.isActive"
+       #rlaHome="routerLinkActive"
+       ariaCurrentWhenActive="page"
+       class="btn">Home</a>
+    <a routerLink="/products"
+       routerLinkActive="btn-primary"
+       [routerLinkActiveOptions]="{exact: true}"
+       [class.btn-outline-primary]="!rlaProducts.isActive"
+       #rlaProducts="routerLinkActive"
+       ariaCurrentWhenActive="page"
+       class="ms-1 btn">Products</a>
   </nav>
-  <router-outlet></router-outlet>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>
