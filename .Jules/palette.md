@@ -1,0 +1,3 @@
+## 2026-07-13 - Navigation Accessibility and Semantic Landmarks
+**Learning:** Using semantic landmarks like `<header>`, `<nav>`, and `<main>` significantly improves document structure for screen readers. Additionally, providing visual and programmatic feedback for the active route using `routerLinkActive` and `aria-current="page"` ensures that all users can easily identify their current location in the application.
+**Action:** Always prefer semantic elements over `<div>` for structural components and ensure active states are communicated both visually (via classes) and programmatically (via ARIA attributes).
