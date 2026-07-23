@@ -1,0 +1,3 @@
+## 2026-07-23 - Dynamic Active Route Styling and Accessibility in Angular
+**Learning:** Toggling Bootstrap button classes conditionally in Angular templates using exported `routerLinkActive` template reference variables prevents the application of redundant/conflicting active/inactive classes and avoids color contrast issues. Binding `[attr.aria-current]` dynamically with a fallback to `null` guarantees proper screen reader recognition of active navigation landmarks.
+**Action:** Always export `routerLinkActive` to template variables for active button styling in Angular, and bind `[attr.aria-current]` to "page" conditionally instead of relying on default browser behaviors.
