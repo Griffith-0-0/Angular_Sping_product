@@ -1,0 +1,3 @@
+## 2026-07-24 - Semantic and Accessible Navigation in Angular and Bootstrap
+**Learning:** Using generic elements like `div` for routing links in Angular breaks key accessibility features, including keyboard tab navigation and screen-reader link-landmark discovery. Wrapping semantic `<a>` tags within a Bootstrap button group inside a `<nav>` landmark ensures full keyboard focusability and excellent screen-reader compatibility.
+**Action:** Always prefer semantic `<a>` tags with `routerLinkActive` exported to a template variable (e.g., `#link="routerLinkActive"`) to toggle accessible styles and control the `[attr.aria-current]` attribute dynamically based on route activity.
