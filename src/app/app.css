@@ -1,0 +1,7 @@
+/* Ensure skip-to-content link overlays nicely without shifting the layout */
+.visually-hidden-focusable:focus {
+  position: absolute !important;
+  top: 10px;
+  left: 10px;
+  z-index: 1050;
+}
