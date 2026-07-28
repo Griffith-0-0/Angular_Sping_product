@@ -1,0 +1,3 @@
+## 2026-07-28 - Dynamic Button Classes in Angular Navigation
+**Learning:** Applying both `btn-primary` and `btn-outline-primary` classes simultaneously on the same element causes text color contrast issues during active route transitions. Using exported template reference variables from RouterLinkActive (e.g., `#rla="routerLinkActive"`) to conditionally apply either class prevents class collision and preserves visual accessibility.
+**Action:** Avoid static combination of primary and outline classes; use class binding `[class.btn-primary]="rla.isActive" [class.btn-outline-primary]="!rla.isActive"` instead.
