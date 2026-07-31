@@ -1,0 +1,3 @@
+## 2026-07-31 - Semantic accessible main navigation layout
+**Learning:** Replaced non-semantic `div` links lacking accessibility and keyboard support with custom semantic `<a>` anchors inside `<nav aria-label="Main navigation">` using dynamic `RouterLinkActive` variables to toggle CSS and `[attr.aria-current]`. This provides complete accessibility and styling control without adding arbitrary elements or breaking layout consistency.
+**Action:** Use native HTML semantic anchors, `<nav>`, `routerLinkActive` template variables, and `[attr.aria-current]` mapping to handle active states dynamically.
