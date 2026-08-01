@@ -1,7 +1,36 @@
-<div class="p-3">
-  <nav>
-    <div routerLink="/home" class="btn btn-outline-primary">Home</div>
-    <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
-  </nav>
-  <router-outlet></router-outlet>
+<!-- Skip to Main Content Link for Accessibility -->
+<a href="#main" class="visually-hidden-focusable p-2 m-2">Skip to Main Content</a>
+
+<div class="container py-4">
+  <header class="mb-4">
+    <h1 class="h2 text-dark font-weight-bold mb-3">Hello, {{ title }}</h1>
+
+    <nav aria-label="Main navigation">
+      <div class="btn-group shadow-sm" role="group">
+        <a routerLink="/home"
+           routerLinkActive
+           #homeLink="routerLinkActive"
+           [class.btn-primary]="homeLink.isActive"
+           [class.btn-outline-primary]="!homeLink.isActive"
+           [attr.aria-current]="homeLink.isActive ? 'page' : null"
+           class="btn">
+          <i class="bi bi-house-door me-1" aria-hidden="true"></i>Home
+        </a>
+        <a routerLink="/products"
+           routerLinkActive
+           #productsLink="routerLinkActive"
+           [class.btn-primary]="productsLink.isActive"
+           [class.btn-outline-primary]="!productsLink.isActive"
+           [attr.aria-current]="productsLink.isActive ? 'page' : null"
+           class="btn">
+          <i class="bi bi-box-seam me-1" aria-hidden="true"></i>Products
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Main landmark containing route-dependent components -->
+  <main id="main" tabindex="-1" class="fade-in">
+    <router-outlet></router-outlet>
+  </main>
 </div>
