@@ -1,0 +1,3 @@
+## 2026-08-01 - Proper active tab classes with routerLinkActive template variables
+**Learning:** In Angular, toggling between distinct Bootstrap outline and filled button variants (`btn-primary` vs `btn-outline-primary`) based on router activity without custom CSS can be achieved cleanly by exporting `routerLinkActive` to a template reference variable (e.g., `#homeLink="routerLinkActive"`) and binding class properties conditionally (`[class.btn-primary]="homeLink.isActive"`).
+**Action:** Use this declarative template-variable approach to toggle mutual exclusive classes instead of combining static classes that may override each other or cause poor color contrast.
