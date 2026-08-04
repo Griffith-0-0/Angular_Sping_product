@@ -1,7 +1,35 @@
-<div class="p-3">
-  <nav>
-    <div routerLink="/home" class="btn btn-outline-primary">Home</div>
-    <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
-  </nav>
-  <router-outlet></router-outlet>
+<div class="container py-4">
+  <header class="mb-4">
+    <h1 class="mb-3 fs-2 fw-bold text-dark">tpAng1</h1>
+    <nav aria-label="Main Navigation">
+      <div class="btn-group shadow-sm" role="group">
+        <a
+          routerLink="/home"
+          routerLinkActive
+          #linkHome="routerLinkActive"
+          [class.btn-primary]="linkHome.isActive"
+          [class.btn-outline-primary]="!linkHome.isActive"
+          [attr.aria-current]="linkHome.isActive ? 'page' : null"
+          class="btn"
+        >
+          Home
+        </a>
+        <a
+          routerLink="/products"
+          routerLinkActive
+          #linkProducts="routerLinkActive"
+          [class.btn-primary]="linkProducts.isActive"
+          [class.btn-outline-primary]="!linkProducts.isActive"
+          [attr.aria-current]="linkProducts.isActive ? 'page' : null"
+          class="btn"
+        >
+          Products
+        </a>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <router-outlet></router-outlet>
+  </main>
 </div>
