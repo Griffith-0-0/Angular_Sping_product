@@ -1,0 +1,28 @@
+/* Skip link focus styles to prevent layout shift */
+.visually-hidden-focusable:focus {
+  position: absolute !important;
+  top: 10px;
+  left: 10px;
+  z-index: 1050;
+  padding: 10px 15px;
+  background-color: #fff;
+  border: 1px solid #0d6efd;
+  border-radius: 4px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.15);
+}
+
+/* Subtle content entry animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fade-in {
+  animation: fadeIn 0.4s ease-out forwards;
+}
