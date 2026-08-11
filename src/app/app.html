@@ -1,7 +1,28 @@
-<div class="p-3">
-  <nav>
-    <div routerLink="/home" class="btn btn-outline-primary">Home</div>
-    <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
-  </nav>
-  <router-outlet></router-outlet>
+<!-- Skip to main content link for screen reader and keyboard accessibility -->
+<a href="#main" class="visually-hidden-focusable">Skip to main content</a>
+
+<div class="container py-4">
+  <header class="mb-4">
+    <nav class="navbar navbar-expand navbar-light bg-light rounded shadow-sm p-2" aria-label="Main navigation">
+      <div class="container-fluid">
+        <span class="navbar-brand mb-0 h1 fs-5 text-primary">tpAng1</span>
+        <div class="navbar-nav gap-2">
+          <a routerLink="/home" routerLinkActive="active" #homeLink="routerLinkActive"
+             class="nav-link btn"
+             [class.btn-primary]="homeLink.isActive"
+             [class.btn-outline-primary]="!homeLink.isActive"
+             [attr.aria-current]="homeLink.isActive ? 'page' : null">Home</a>
+          <a routerLink="/products" routerLinkActive="active" #productsLink="routerLinkActive"
+             class="nav-link btn"
+             [class.btn-primary]="productsLink.isActive"
+             [class.btn-outline-primary]="!productsLink.isActive"
+             [attr.aria-current]="productsLink.isActive ? 'page' : null">Products</a>
+        </div>
+      </div>
+    </nav>
+  </header>
+
+  <main id="main" tabindex="-1">
+    <router-outlet></router-outlet>
+  </main>
 </div>
