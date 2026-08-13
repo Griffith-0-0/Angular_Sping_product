@@ -1,0 +1,3 @@
+## 2026-08-13 - Preventing Layout Shifting and Coordinate Misalignment in Automated Tests
+**Learning:** Adding a keyboard-accessible "Skip to Main Content" link can cause significant page-wide layout shift when focused during automated Playwright tests, resulting in coordinate shift and click/action failures on elements below it. Additionally, Bootstrap's default `.container-fluid` in navbars can cause layout splitting due to `justify-content: space-between`.
+**Action:** Style the `.visually-hidden-focusable:focus` class with absolute positioning (`position: absolute !important`) to overlay nicely on top of content without affecting layout flow, and replace `.container-fluid` inside a navbar with simple flex wrappers like `.d-flex.gap-2` to keep items grouped correctly.
