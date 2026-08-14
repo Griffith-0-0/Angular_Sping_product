@@ -1,0 +1,3 @@
+## 2026-08-14 - Skip to Main Content Absolute Positioning
+**Learning:** To prevent page-wide layout shift and coordinate-shift-induced failures in Playwright tests when a skip-to-content link is keyboard-focused, style '.visually-hidden-focusable:focus' with absolute positioning (e.g., 'position: absolute !important') so that it overlays nicely on top of the content instead of shifting the main layout flow.
+**Action:** Always structure layout wrappers to handle '.visually-hidden-focusable:focus' with absolute positioning and high z-index overlays, preventing layout jumping when focusing on keyboard-accessible elements.
