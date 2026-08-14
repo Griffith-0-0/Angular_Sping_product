@@ -1,7 +1,14 @@
 <div class="p-3">
-  <nav>
-    <div routerLink="/home" class="btn btn-outline-primary">Home</div>
-    <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
+  <a class="visually-hidden-focusable" href="#main">Skip to main content</a>
+
+  <nav aria-label="Main Navigation" class="mb-3">
+    <div class="btn-group shadow-sm">
+      <a routerLink="/home" routerLinkActive="active" class="btn btn-outline-primary">Home</a>
+      <a routerLink="/products" routerLinkActive="active" class="btn btn-outline-primary">Products</a>
+    </div>
   </nav>
-  <router-outlet></router-outlet>
+
+  <main id="main" tabindex="-1">
+    <router-outlet></router-outlet>
+  </main>
 </div>
