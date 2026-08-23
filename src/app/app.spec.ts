@@ -1,12 +1,17 @@
 import { provideZonelessChangeDetection } from '@angular/core';
 import { TestBed } from '@angular/core/testing';
+import { provideRouter, Router } from '@angular/router';
 import { App } from './app';
+import { routes } from './app.routes';
 
 describe('App', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       imports: [App],
-      providers: [provideZonelessChangeDetection()]
+      providers: [
+        provideZonelessChangeDetection(),
+        provideRouter(routes)
+      ]
     }).compileComponents();
   });
 
@@ -16,10 +21,22 @@ describe('App', () => {
     expect(app).toBeTruthy();
   });
 
-  it('should render title', () => {
+  it('should render accessible main navigation links', async () => {
     const fixture = TestBed.createComponent(App);
-    fixture.detectChanges();
+    const router = TestBed.inject(Router);
+    router.initialNavigation();
+    await fixture.whenStable();
+
     const compiled = fixture.nativeElement as HTMLElement;
-    expect(compiled.querySelector('h1')?.textContent).toContain('Hello, tpAng1');
+    const nav = compiled.querySelector('nav[aria-label="Main navigation"]');
+    expect(nav).toBeTruthy();
+
+    const homeLink = compiled.querySelector('a[href="/home"]');
+    const productsLink = compiled.querySelector('a[href="/products"]');
+
+    expect(homeLink).toBeTruthy();
+    expect(productsLink).toBeTruthy();
+    expect(homeLink?.getAttribute('aria-current')).toBe('page');
+    expect(productsLink?.getAttribute('aria-current')).toBeNull();
   });
 });
