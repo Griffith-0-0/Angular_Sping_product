@@ -1,0 +1,3 @@
+## 2026-08-25 - Navigation Accessibility and Active Route Feedback
+**Learning:** Using non-semantic elements (like `div`) with `routerLink` lacks screen reader semantics and visual active states. Converting navigation links to `<a>` tags inside a `<nav aria-label="...">` landmark, paired with `RouterLinkActive` template reference variable bindings for `[class.btn-primary]` vs `[class.btn-outline-primary]` and `[attr.aria-current]`, delivers clear active state feedback while keeping markup clean without custom CSS.
+**Action:** Always wrap primary navigation links in `<nav aria-label="...">`, use standard `<a>` tags with `routerLinkActive`, toggle Bootstrap variant classes cleanly using local template variables, and mark active items with `[attr.aria-current]`.
