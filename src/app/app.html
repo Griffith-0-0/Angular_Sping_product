@@ -1,7 +1,10 @@
+<a href="#main" class="visually-hidden-focusable btn btn-primary m-2">Skip to main content</a>
 <div class="p-3">
-  <nav>
+  <nav aria-label="Main navigation">
     <div routerLink="/home" class="btn btn-outline-primary">Home</div>
     <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
   </nav>
-  <router-outlet></router-outlet>
+  <main id="main" tabindex="-1" class="mt-3 fade-in">
+    <router-outlet></router-outlet>
+  </main>
 </div>
