@@ -1,0 +1,3 @@
+## 2026-09-15 - Accessible Navigation Link Bypass & Active Route States
+**Learning:** Bootstrap skip links require `visually-hidden visually-hidden-focusable` so they remain completely hidden from screen flow until tab-focused. In Angular, combining `RouterLinkActive` with `[attr.aria-current]="rla.isActive ? 'page' : null"` guarantees proper screen reader announcements and semantic navigation styling without custom CSS or layout shift.
+**Action:** Always combine `visually-hidden visually-hidden-focusable` on skip links and export `#rla="routerLinkActive"` for accessible button state toggling.
