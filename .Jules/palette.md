@@ -1,0 +1,3 @@
+## 2026-10-10 - Semantic navigation link button group with aria-current
+**Learning:** Using `div` tags with `routerLink` creates inaccessible navigation elements that screen readers cannot identify as links or buttons. Combining semantic `<a>` tags inside a Bootstrap `.btn-group` wrapper with `RouterLinkActive` (`#rla="routerLinkActive"`, `[attr.aria-current]="rla.isActive ? 'page' : null"`) ensures full keyboard and screen reader accessibility while maintaining clean active visual styling.
+**Action:** Always replace non-semantic routerLink `div`s with semantic `<a>` links inside a labeled `<nav>` landmark and bind `aria-current="page"` dynamically.
