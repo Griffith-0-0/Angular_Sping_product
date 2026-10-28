@@ -1,0 +1,3 @@
+## 2026-10-28 - Navigation Accessibility with routerLinkActive
+**Learning:** Using `<div>` elements with `routerLink` creates inaccessible navigation that lacks keyboard focus and screen reader semantics. Replacing them with semantic `<a>` tags in a `<nav aria-label="Main navigation">` container along with dynamic `[class.btn-primary]` and `[attr.aria-current]` state bindings provides full keyboard navigation and screen reader support.
+**Action:** Always wrap router navigation in semantic `<a>` tags with `[attr.aria-current]="rla.isActive ? 'page' : null"` and `<nav aria-label="...">` landmark attributes.
