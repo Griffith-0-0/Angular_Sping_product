@@ -1,7 +1,34 @@
-<div class="p-3">
-  <nav>
-    <div routerLink="/home" class="btn btn-outline-primary">Home</div>
-    <div routerLink="/products" class="ms-1 btn btn-outline-primary">Products</div>
-  </nav>
-  <router-outlet></router-outlet>
+<div class="container py-4">
+  <header class="mb-4">
+    <h1 class="h3 mb-3">tpAng1</h1>
+    <nav aria-label="Main navigation">
+      <div class="btn-group shadow-sm" role="group">
+        <a
+          routerLink="/home"
+          routerLinkActive
+          #homeRla="routerLinkActive"
+          class="btn"
+          [class.btn-primary]="homeRla.isActive"
+          [class.btn-outline-primary]="!homeRla.isActive"
+          [attr.aria-current]="homeRla.isActive ? 'page' : null"
+        >
+          <i class="bi bi-house-door-fill me-1" aria-hidden="true"></i> Home
+        </a>
+        <a
+          routerLink="/products"
+          routerLinkActive
+          #productsRla="routerLinkActive"
+          class="btn"
+          [class.btn-primary]="productsRla.isActive"
+          [class.btn-outline-primary]="!productsRla.isActive"
+          [attr.aria-current]="productsRla.isActive ? 'page' : null"
+        >
+          <i class="bi bi-box-seam-fill me-1" aria-hidden="true"></i> Products
+        </a>
+      </div>
+    </nav>
+  </header>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
 </div>
