@@ -1,0 +1,3 @@
+## 2026-11-03 - Navigation Active State and Landmark Semantics in Angular Standalone
+**Learning:** Raw `<div>` buttons with `routerLink` lack native anchor keyboard semantics, active link highlighting, and `aria-current="page"` context required by screen readers. Binding `[class.btn-primary]="rla.isActive"` and `[attr.aria-current]="rla.isActive ? 'page' : null"` with `#rla="routerLinkActive"` provides clean, accessible state management without conflicting Bootstrap button classes.
+**Action:** When converting Angular nav links, export `routerLinkActive` to a template variable to conditionally toggle active styles and bind `aria-current`.
